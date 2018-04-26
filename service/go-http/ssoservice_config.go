@@ -6,6 +6,8 @@ import (
 	"github.com/dgrijalva/jwt-go"
 	log "github.com/sirupsen/logrus"
 	"io/ioutil"
+	"os"
+	"encoding/json"
 )
 
 type SsoServiceConfig struct {
@@ -43,4 +45,21 @@ func readConfiguration(configuration *SsoServiceConfig) (*rsa.PublicKey, error) 
 	}
 
 	return publicKey, nil
+}
+
+// LoadConfiguration loads the configuration file
+func LoadConfiguration(file string) (*SsoServiceConfig, error) {
+
+	configFile, err := os.Open(file)
+	defer configFile.Close()
+
+	if err != nil {
+		return nil, err
+	}
+	jsonParser := json.NewDecoder(configFile)
+
+	var config SsoServiceConfig
+	jsonParser.Decode(&config)
+
+	return &config, nil
 }

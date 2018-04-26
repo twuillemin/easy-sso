@@ -7,7 +7,7 @@ import (
 	"crypto/rsa"
 	"errors"
 	"github.com/dgrijalva/jwt-go"
-	"github.com/samitpal/simple-sso/util"
+	shared "bitbucket.org/ThomasWuillemin/easy-sso/shared"
 	"time"
 )
 
@@ -24,7 +24,7 @@ var (
 )
 
 // NewSsoEngine allocates a new SsoEngine with the given configuration
-func NewSsoEngine(configuration *SsoServiceConfig) (*SsoService, error) {
+func NewSsoService(configuration *SsoServiceConfig) (*SsoService, error) {
 
 	publicKey, err := readConfiguration(configuration)
 	if err != nil {
@@ -77,8 +77,8 @@ func (ssoService *SsoService) GetUserFromHeaderOrFail(writer http.ResponseWriter
 	}
 
 	// Read the token
-	tokenString := parts[1]
-	token, err := jwt.ParseWithClaims(tokenString, &util.CustomClaims{}, func(token *jwt.Token) (interface{}, error) {
+	tokenString := authorizationValue
+	token, err := jwt.ParseWithClaims(tokenString, &shared.CustomClaims{}, func(token *jwt.Token) (interface{}, error) {
 		return ssoService.serverPublicKey, nil
 	})
 	if err != nil {
@@ -87,7 +87,7 @@ func (ssoService *SsoService) GetUserFromHeaderOrFail(writer http.ResponseWriter
 	}
 
 	// Read the claims
-	claims, ok := token.Claims.(*util.CustomClaims) // claims.User and claims.Roles are what we are interested in.
+	claims, ok := token.Claims.(*shared.CustomClaims) // claims.User and claims.Roles are what we are interested in.
 	if !ok {
 		http.Error(writer, "Error while verifying the token - Malformed claims", http.StatusUnauthorized)
 		return "", nil, ErrTokenMalformed

@@ -1,0 +1,43 @@
+{
+  "server": {
+    "port": 443,
+    "httpsCertificate": "C:\\dev\\go\\src\\bitbucket.org\\ThomasWuillemin\\easy-sso\\example\\server.crt",
+    "httpsCertificateKey": "C:\\dev\\go\\src\\bitbucket.org\\ThomasWuillemin\\easy-sso\\example\\server.key",
+    "clientId": "client_id",
+    "clientPassword": "client_password"
+  },
+  "sso": {
+    "privateKeyPath": "C:\\dev\\go\\src\\bitbucket.org\\ThomasWuillemin\\easy-sso\\example\\signing.key",
+    "tokenSecondsToLive": 60,
+    "refreshSecondsToLive": 600,
+    "providers": [
+      "basic"
+    ]
+  },
+  "basic": {
+    "users": [
+      {
+        "userName": "admin",
+        "password": "admin_password",
+        "roles": [
+          "administrator"
+        ]
+      },
+      {
+        "userName": "user",
+        "password": "user_password",
+        "roles": [
+          "user"
+        ]
+      }
+    ]
+  },
+  "ldap": {
+    "host": "localhost",
+    "port": 636,
+    "ssl": true,
+    "baseDN": "dc=EXAMPLE,dc=FR",
+    "bindDN": "dc=EXAMPLE,dc=FR",
+    "bindPassword": "super secret password very long"
+  }
+}
