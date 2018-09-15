@@ -1,7 +1,7 @@
 package server
 
 import (
-	"bitbucket.org/ThomasWuillemin/easy-sso/pkg/common"
+	"bitbucket.org/twuillemin/easy-sso/pkg/common"
 	log "github.com/sirupsen/logrus"
 )
 

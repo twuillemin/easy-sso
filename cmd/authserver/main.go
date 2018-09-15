@@ -1,8 +1,8 @@
 package main
 
 import (
-	"bitbucket.org/ThomasWuillemin/easy-sso/pkg/common"
-	"bitbucket.org/ThomasWuillemin/easy-sso/pkg/server"
+	"bitbucket.org/twuillemin/easy-sso/pkg/common"
+	"bitbucket.org/twuillemin/easy-sso/pkg/server"
 	"encoding/json"
 	log "github.com/sirupsen/logrus"
 	"net/http"

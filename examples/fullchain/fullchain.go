@@ -8,26 +8,14 @@ import (
 	"os"
 	"strconv"
 
-	"bitbucket.org/ThomasWuillemin/easy-sso/pkg/common"
-	"bitbucket.org/ThomasWuillemin/easy-sso/pkg/connector"
-	"bitbucket.org/ThomasWuillemin/easy-sso/pkg/server"
-	"bitbucket.org/ThomasWuillemin/easy-sso/pkg/validator"
+	"bitbucket.org/twuillemin/easy-sso/pkg/common"
+	"bitbucket.org/twuillemin/easy-sso/pkg/connector"
+	"bitbucket.org/twuillemin/easy-sso/pkg/server"
+	"bitbucket.org/twuillemin/easy-sso/pkg/validator"
 	log "github.com/sirupsen/logrus"
 )
 
-const basePath string = "C:\\Users\\thwui\\go\\src\\bitbucket.org\\ThomasWuillemin\\easy-sso\\examples\\fullchain"
-
-func init() {
-	// Log as JSON instead of the default ASCII formatter.
-	log.SetFormatter(&log.JSONFormatter{})
-
-	// Output to stdout instead of the default stderr
-	// Can be any io.Writer, see below for File example
-	log.SetOutput(os.Stdout)
-
-	// Only log the warning severity or above.
-	log.SetLevel(log.DebugLevel)
-}
+const basePath string = "C:\\Users\\thwui\\go\\src\\bitbucket.org\\twuillemin\\easy-sso\\examples\\fullchain"
 
 func main() {
 

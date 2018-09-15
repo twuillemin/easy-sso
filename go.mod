@@ -1,4 +1,4 @@
-module bitbucket.org/ThomasWuillemin/easy-sso/v0.0.1
+module bitbucket.org/twuillemin/easy-sso
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect

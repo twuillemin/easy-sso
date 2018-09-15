@@ -1,7 +1,7 @@
 package server
 
 import (
-	"bitbucket.org/ThomasWuillemin/easy-sso/pkg/common"
+	"bitbucket.org/twuillemin/easy-sso/pkg/common"
 	"crypto/rsa"
 	"github.com/dgrijalva/jwt-go"
 	log "github.com/sirupsen/logrus"

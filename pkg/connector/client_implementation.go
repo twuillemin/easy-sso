@@ -1,7 +1,7 @@
 package connector
 
 import (
-	"bitbucket.org/ThomasWuillemin/easy-sso/pkg/common"
+	"bitbucket.org/twuillemin/easy-sso/pkg/common"
 	"fmt"
 	"net/http"
 	"time"
