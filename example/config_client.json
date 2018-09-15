@@ -1,6 +1,0 @@
-{
-  "serverBaseURL": "https://localhost:443",
-  "serverPublicHTTPSCertificate":"C:\\dev\\go\\src\\bitbucket.org\\ThomasWuillemin\\easy-sso\\example\\server.crt",
-  "clientId": "client_id",
-  "clientPassword": "client_password"
-}
