@@ -1,12 +1,13 @@
 package server
 
 import (
-	"bitbucket.org/twuillemin/easy-sso/pkg/common"
 	"crypto/rsa"
+	"time"
+
+	"bitbucket.org/twuillemin/easy-sso-common/pkg/common"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/satori/go.uuid"
 	log "github.com/sirupsen/logrus"
-	"time"
 )
 
 // ssoEngine holds together all the information needed by the default SSO engine
@@ -16,13 +17,6 @@ type ssoEngineImpl struct {
 	refreshTokens        map[string]*refreshInformation
 	tokenSecondsToLive   int64
 	refreshSecondsToLive int64
-}
-
-// CustomClaims holds together all the claims that will be present in the JWT Token
-type CustomClaims struct {
-	User  string   `json:"user"`
-	Roles []string `json:"roles"`
-	jwt.StandardClaims
 }
 
 // -------------------------------------------------------------------------------------------
@@ -112,13 +106,13 @@ func (engine ssoEngineImpl) generateRefreshToken(authenticatedUser *authenticate
 }
 
 // generateJWTToken generate a new JWT Token for the given user
-func (engine ssoEngineImpl) generateJWTToken(authenticatedUser *authenticatedUser) (*CustomClaims, string, error) {
+func (engine ssoEngineImpl) generateJWTToken(authenticatedUser *authenticatedUser) (*common.CustomClaims, string, error) {
 
 	// Build the claims
-	claims := &CustomClaims{
-		authenticatedUser.UserName,
-		authenticatedUser.Roles,
-		jwt.StandardClaims{
+	claims := &common.CustomClaims{
+		User:  authenticatedUser.UserName,
+		Roles: authenticatedUser.Roles,
+		StandardClaims: jwt.StandardClaims{
 			ExpiresAt: time.Now().Unix() + engine.tokenSecondsToLive,
 			Issuer:    "Easy SSO Server",
 		},

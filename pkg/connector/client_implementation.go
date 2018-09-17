@@ -1,10 +1,11 @@
 package connector
 
 import (
-	"bitbucket.org/twuillemin/easy-sso/pkg/common"
 	"fmt"
 	"net/http"
 	"time"
+
+	"bitbucket.org/twuillemin/easy-sso-common/pkg/common"
 )
 
 type clientImpl struct {

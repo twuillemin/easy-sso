@@ -1,11 +1,12 @@
 package server
 
 import (
-	"bitbucket.org/twuillemin/easy-sso/pkg/common"
 	"crypto/rsa"
+	"io/ioutil"
+
+	"bitbucket.org/twuillemin/easy-sso-common/pkg/common"
 	"github.com/dgrijalva/jwt-go"
 	log "github.com/sirupsen/logrus"
-	"io/ioutil"
 )
 
 // newSsoEngine allocates a new ssoEngine with the given configuration

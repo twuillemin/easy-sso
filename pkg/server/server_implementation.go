@@ -1,11 +1,12 @@
 package server
 
 import (
-	"bitbucket.org/twuillemin/easy-sso/pkg/common"
 	"encoding/json"
 	"fmt"
-	log "github.com/sirupsen/logrus"
 	"net/http"
+
+	"bitbucket.org/twuillemin/easy-sso-common/pkg/common"
+	log "github.com/sirupsen/logrus"
 )
 
 // errors401 is a map holding the various errors that should (but not must) generate a 401 error in the general context

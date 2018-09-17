@@ -1,9 +1,10 @@
 package server
 
 import (
-	"bitbucket.org/twuillemin/easy-sso/pkg/common"
-	log "github.com/sirupsen/logrus"
 	"os"
+
+	"bitbucket.org/twuillemin/easy-sso-common/pkg/common"
+	log "github.com/sirupsen/logrus"
 )
 
 type Configuration struct {

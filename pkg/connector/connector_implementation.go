@@ -1,13 +1,14 @@
 package connector
 
 import (
-	"bitbucket.org/twuillemin/easy-sso/pkg/common"
 	"bytes"
 	"compress/gzip"
 	"encoding/json"
-	"github.com/dgrijalva/jwt-go"
 	"io"
 	"net/http"
+
+	"bitbucket.org/twuillemin/easy-sso-common/pkg/common"
+	"github.com/dgrijalva/jwt-go"
 )
 
 type connectorImpl struct {
@@ -58,7 +59,7 @@ func (client connectorImpl) RequestToken(userName string, password string) (*com
 	// Get the body of the query
 	rawToken := getBody(responseGetToken)
 	if rawToken == nil {
-		return nil, common.EmptyResponseFromServer
+		return nil, common.ErrEmptyResponseFromServer
 	}
 
 	var response common.AuthenticationResponse
@@ -108,7 +109,7 @@ func (client connectorImpl) RequestRefresh(refreshToken string) (*common.Authent
 	// Get the body of the query
 	rawToken := getBody(responseGetToken)
 	if rawToken == nil {
-		return nil, common.EmptyResponseFromServer
+		return nil, common.ErrEmptyResponseFromServer
 	}
 
 	var response common.AuthenticationResponse

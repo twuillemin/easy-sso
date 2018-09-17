@@ -1,7 +1,7 @@
 package server
 
 import (
-	"bitbucket.org/twuillemin/easy-sso/pkg/common"
+	"bitbucket.org/twuillemin/easy-sso-common/pkg/common"
 )
 
 // ssoEngine defines all the function needed for a SSO engine

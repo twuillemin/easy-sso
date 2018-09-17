@@ -8,7 +8,7 @@ import (
 	"os"
 	"strconv"
 
-	"bitbucket.org/twuillemin/easy-sso/pkg/common"
+	"bitbucket.org/twuillemin/easy-sso-common/pkg/common"
 	"bitbucket.org/twuillemin/easy-sso/pkg/connector"
 	"bitbucket.org/twuillemin/easy-sso/pkg/server"
 	"bitbucket.org/twuillemin/easy-sso/pkg/validator"
@@ -215,8 +215,6 @@ func doService1(configurationConnector *connector.AuthConnectorConfig, configura
 
 			fmt.Printf("/hello1: Replied to the query\n")
 		})
-
-	log.Info("doService1: Ready to serve")
 
 	http.ListenAndServe(":8080", nil)
 }

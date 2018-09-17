@@ -1,10 +1,11 @@
 package server
 
 import (
-	"bitbucket.org/twuillemin/easy-sso/pkg/common"
 	"crypto/tls"
 	"fmt"
 	"time"
+
+	"bitbucket.org/twuillemin/easy-sso-common/pkg/common"
 
 	"gopkg.in/ldap.v2"
 )

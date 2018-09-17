@@ -1,13 +1,14 @@
 package main
 
 import (
-	"bitbucket.org/twuillemin/easy-sso/pkg/common"
-	"bitbucket.org/twuillemin/easy-sso/pkg/server"
 	"encoding/json"
-	log "github.com/sirupsen/logrus"
 	"net/http"
 	"os"
 	"strconv"
+
+	"bitbucket.org/twuillemin/easy-sso-common/pkg/common"
+	"bitbucket.org/twuillemin/easy-sso/pkg/server"
+	log "github.com/sirupsen/logrus"
 )
 
 func main() {

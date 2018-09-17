@@ -1,9 +1,10 @@
 package validator
 
 import (
+	"io/ioutil"
+
 	"github.com/dgrijalva/jwt-go"
 	log "github.com/sirupsen/logrus"
-	"io/ioutil"
 )
 
 // New creates a new Validator with the given configuration. The validator can then be used in the

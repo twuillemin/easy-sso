@@ -1,12 +1,13 @@
 package validator
 
 import (
-	"bitbucket.org/twuillemin/easy-sso/pkg/common"
 	"crypto/rsa"
-	"github.com/dgrijalva/jwt-go"
 	"net/http"
 	"strings"
 	"time"
+
+	"bitbucket.org/twuillemin/easy-sso-common/pkg/common"
+	"github.com/dgrijalva/jwt-go"
 )
 
 type validatorImpl struct {
