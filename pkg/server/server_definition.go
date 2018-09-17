@@ -7,16 +7,16 @@ import "net/http"
 type authServer interface {
 
 	// handleGetStatus returns the status of the server
-	HandleGetStatus(writer http.ResponseWriter, request *http.Request)
+	handleGetStatus(writer http.ResponseWriter, request *http.Request)
 
 	// handleGetStatus reload the configuration of the SSO
-	HandleReloadConfiguration(writer http.ResponseWriter, request *http.Request)
+	handleReloadConfiguration(writer http.ResponseWriter, request *http.Request)
 
 	// handleTokenRequest returns (if authorized) a new token associated with the user
 	// given in a form
-	HandleTokenRequest(writer http.ResponseWriter, request *http.Request)
+	handleTokenRequest(writer http.ResponseWriter, request *http.Request)
 
 	// handleRefreshRequest returns (if authorized) a new token associated with the refreshToken
 	// given in a form
-	HandleRefreshRequest(writer http.ResponseWriter, request *http.Request)
+	handleRefreshRequest(writer http.ResponseWriter, request *http.Request)
 }

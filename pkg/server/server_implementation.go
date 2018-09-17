@@ -26,7 +26,7 @@ type authServerImpl struct {
 }
 
 // handleGetStatus returns the status of the server
-func (server authServerImpl) HandleGetStatus(writer http.ResponseWriter, request *http.Request) {
+func (server authServerImpl) handleGetStatus(writer http.ResponseWriter, request *http.Request) {
 
 	// Check endpoint Authentication
 	if err := checkEndPointAuthentication(server.endpointAuthentication, request, writer); err != nil {
@@ -39,7 +39,7 @@ func (server authServerImpl) HandleGetStatus(writer http.ResponseWriter, request
 }
 
 // handleGetStatus reload the configuration of the SSO
-func (server authServerImpl) HandleReloadConfiguration(writer http.ResponseWriter, request *http.Request) {
+func (server authServerImpl) handleReloadConfiguration(writer http.ResponseWriter, request *http.Request) {
 
 	// Check endpoint Authentication
 	if err := checkEndPointAuthentication(server.endpointAuthentication, request, writer); err != nil {
@@ -73,7 +73,7 @@ func (server authServerImpl) HandleReloadConfiguration(writer http.ResponseWrite
 
 // handleTokenRequest returns (if authorized) a new token associated with the user
 // given in a form
-func (server authServerImpl) HandleTokenRequest(writer http.ResponseWriter, request *http.Request) {
+func (server authServerImpl) handleTokenRequest(writer http.ResponseWriter, request *http.Request) {
 
 	// Check endpoint Authentication
 	if err := checkEndPointAuthentication(server.endpointAuthentication, request, writer); err != nil {
@@ -155,7 +155,7 @@ func (server authServerImpl) HandleTokenRequest(writer http.ResponseWriter, requ
 
 // handleRefreshRequest returns (if authorized) a new token associated with the refreshToken
 // given in a form
-func (server authServerImpl) HandleRefreshRequest(writer http.ResponseWriter, request *http.Request) {
+func (server authServerImpl) handleRefreshRequest(writer http.ResponseWriter, request *http.Request) {
 
 	// Check endpoint Authentication
 	if err := checkEndPointAuthentication(server.endpointAuthentication, request, writer); err != nil {

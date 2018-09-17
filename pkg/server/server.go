@@ -71,12 +71,12 @@ func AddServer(
 	log.Info("Adding SSO Server Handler.")
 
 	// Add the public endpoints
-	publicServer.HandleFunc("/token", server.HandleTokenRequest)
-	publicServer.HandleFunc("/refresh", server.HandleRefreshRequest)
+	publicServer.HandleFunc("/token", server.handleTokenRequest)
+	publicServer.HandleFunc("/refresh", server.handleRefreshRequest)
 
 	// Add the private endpoints
-	privateServer.HandleFunc("/status", server.HandleGetStatus)
-	privateServer.HandleFunc("/reload-sso-configuration", server.HandleReloadConfiguration)
+	privateServer.HandleFunc("/status", server.handleGetStatus)
+	privateServer.HandleFunc("/reload-sso-configuration", server.handleReloadConfiguration)
 
 	return nil
 }

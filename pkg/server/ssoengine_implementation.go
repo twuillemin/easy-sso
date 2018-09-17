@@ -114,7 +114,8 @@ func (engine ssoEngineImpl) generateJWTToken(authenticatedUser *authenticatedUse
 		Roles: authenticatedUser.Roles,
 		StandardClaims: jwt.StandardClaims{
 			ExpiresAt: time.Now().Unix() + engine.tokenSecondsToLive,
-			Issuer:    "Easy SSO Server",
+			IssuedAt: time.Now().Unix(),
+			Issuer: "EasySSO Server",
 		},
 	}
 	// Build the token
