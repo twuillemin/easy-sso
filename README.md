@@ -4,6 +4,7 @@ EasySSO is a simple, but nonetheless efficient go package to integrate a Single 
  * [easy-sso-common](https://bitbucket.org/twuillemin/easy-sso-common): the common definition and structures used by all the sub-projects
  * [easy-sso](https://bitbucket.org/twuillemin/easy-sso): the SSO server component that your currently browsing. Along with the server this project also include components for services (validating the query) and client (authenticating and connecting to the services). These components only rely on the Go default http.
  * [easy-sso-mux](https://bitbucket.org/twuillemin/easy-sso-mux): a middleware for the [gorilla/mux](https://github.com/gorilla/mux) router, validating client authentication.
+ * [easy-sso-negroni](https://bitbucket.org/twuillemin/easy-sso-negroni): a middleware for the [Negroni](https://github.com/urfave/negroni) web middleware, validating client authentication.
 
 # Usage of the SSO and Authentication schema
 For a client, the authentication is a two step process:

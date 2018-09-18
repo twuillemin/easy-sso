@@ -1,13 +1,9 @@
 package validator
 
 import (
+	"bitbucket.org/twuillemin/easy-sso-common/pkg/common"
 	"crypto/rsa"
 	"net/http"
-	"strings"
-	"time"
-
-	"bitbucket.org/twuillemin/easy-sso-common/pkg/common"
-	"github.com/dgrijalva/jwt-go"
 )
 
 type validatorImpl struct {
@@ -17,65 +13,29 @@ type validatorImpl struct {
 // GetUserFromTokenOrFail is be inserted at beginning of each endpoint for ensuring that
 // the authentication token is present and valid
 func (validator validatorImpl) GetUserFromHeaderOrFail(writer http.ResponseWriter, request *http.Request) (string, []string, error) {
-	authorization := request.Header.Get("Authorization")
 
-	// If no authorization (8 is the minimum for Bearer + 1 char token)
-	if len(authorization) == 0 {
-		http.Error(writer, "No valid Authorization header", http.StatusUnauthorized)
-		return "", nil, common.ErrNoAuthorization
-	}
-
-	// If no authorization (8 is the minimum for Bearer + 1 char token)
-	if len(authorization) < 8 {
-		http.Error(writer, "Malformed Authorization header - Too short", http.StatusBadRequest)
-		return "", nil, common.ErrMalformedAuthorization
-	}
-
-	// Check the format
-	bearer := authorization[0:7]
-	authorizationValue := authorization[7:]
-
-	if bearer != "Bearer " {
-		http.Error(writer, "Malformed authorization header - No Bearer found", http.StatusBadRequest)
-		return "", nil, common.ErrMalformedAuthorization
-	}
-
-	// Split by the dots
-	parts := strings.Split(authorizationValue, ".")
-	if len(parts) != 3 {
-		http.Error(writer, "Malformed Authorization header - Bad Bearer value", http.StatusBadRequest)
-		return "", nil, common.ErrMalformedAuthorization
-	}
-
-	// Check the signature
-	err := jwt.SigningMethodRS512.Verify(strings.Join(parts[0:2], "."), parts[2], validator.serverPublicKey)
+	// Use the common package to retrieve authentication
+	authenticationInformation, err := common.GetAuthenticationFromRequest(request, validator.serverPublicKey, false)
 	if err != nil {
-		http.Error(writer, "Error while verifying the token - Bad signature", http.StatusUnauthorized)
-		return "", nil, common.ErrSignatureInvalid
+		switch err {
+		case common.ErrMalformedAuthorization:
+		case common.ErrTokenMalformed:
+			{
+				// Write an error and stop the handler chain
+				http.Error(writer, "Bad Request", http.StatusBadRequest)
+			}
+		case common.ErrSignatureInvalid:
+		case common.ErrNoAuthorization:
+			{
+				http.Error(writer, "Unauthorized", http.StatusUnauthorized)
+			}
+		default:
+			{
+				http.Error(writer, "Internal Server Error", http.StatusInternalServerError)
+			}
+		}
+		return "", nil,err
 	}
 
-	// Read the token
-	tokenString := authorizationValue
-	token, err := jwt.ParseWithClaims(tokenString, &common.CustomClaims{}, func(token *jwt.Token) (interface{}, error) {
-		return validator.serverPublicKey, nil
-	})
-	if err != nil {
-		http.Error(writer, "Error while verifying the token - Malformed token", http.StatusUnauthorized)
-		return "", nil, common.ErrTokenMalformed
-	}
-
-	// Read the claims
-	claims, ok := token.Claims.(*common.CustomClaims) // claims.User and claims.Roles are what we are interested in.
-	if !ok {
-		http.Error(writer, "Error while verifying the token - Malformed claims", http.StatusUnauthorized)
-		return "", nil, common.ErrTokenMalformed
-	}
-
-	// Read the timeout
-	if claims.ExpiresAt < time.Now().Unix() {
-		http.Error(writer, "Error while verifying the token - Token too old", http.StatusUnauthorized)
-		return "", nil, common.ErrTokenTooOld
-	}
-
-	return claims.User, claims.Roles, nil
+	return authenticationInformation.User, authenticationInformation.Roles, nil
 }
