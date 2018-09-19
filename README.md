@@ -314,10 +314,10 @@ The authentication server is created by giving it:
 The configuration of the server is stored in a struct named `server.Configuration` with all the details given above. Once a configuration is assembled, simply calling `server.AddServer` is enough to have the authentication server added to the application. An example of such integration is given in the file `cmd/authserver/main.go`.
 
 # License
-Copyright 2018 Thomas Wuillemin
+Copyright 2018 Thomas Wuillemin  <thomas.wuillemin@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
+you may not use this project or its content except in compliance with the License.
 You may obtain a copy of the License at
 
 http://www.apache.org/licenses/LICENSE-2.0
