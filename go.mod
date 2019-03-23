@@ -1,7 +1,6 @@
-module bitbucket.org/twuillemin/easy-sso
+module github.com/twuillemin/easy-sso
 
 require (
-	bitbucket.org/twuillemin/easy-sso-common v0.0.3
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/kr/pretty v0.1.0 // indirect
@@ -10,6 +9,7 @@ require (
 	github.com/satori/go.uuid v1.2.0
 	github.com/sirupsen/logrus v1.0.6
 	github.com/stretchr/testify v1.2.2 // indirect
+	github.com/twuillemin/easy-sso-common v0.1.0
 	golang.org/x/crypto v0.0.0-20180910181607-0e37d006457b // indirect
 	gopkg.in/airbrake/gobrake.v2 v2.0.9 // indirect
 	gopkg.in/asn1-ber.v1 v1.0.0-20170511165959-379148ca0225 // indirect

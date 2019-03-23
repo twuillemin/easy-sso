@@ -1,8 +1,8 @@
 package server
 
 import (
-	"bitbucket.org/twuillemin/easy-sso-common/pkg/common"
 	log "github.com/sirupsen/logrus"
+	"github.com/twuillemin/easy-sso-common/pkg/common"
 )
 
 // authenticationProvider is what it needs to be implemented for authentication functionality.

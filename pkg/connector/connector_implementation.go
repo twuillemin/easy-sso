@@ -7,8 +7,8 @@ import (
 	"io"
 	"net/http"
 
-	"bitbucket.org/twuillemin/easy-sso-common/pkg/common"
 	"github.com/dgrijalva/jwt-go"
+	"github.com/twuillemin/easy-sso-common/pkg/common"
 )
 
 type connectorImpl struct {

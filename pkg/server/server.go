@@ -3,8 +3,8 @@ package server
 import (
 	"net/http"
 
-	"bitbucket.org/twuillemin/easy-sso-common/pkg/common"
 	log "github.com/sirupsen/logrus"
+	"github.com/twuillemin/easy-sso-common/pkg/common"
 )
 
 // AddServer creates a new Authentication server and add its endpoint to the given http mux. Note that the endpoints

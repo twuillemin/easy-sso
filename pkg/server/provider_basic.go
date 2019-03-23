@@ -1,8 +1,8 @@
 package server
 
 import (
-	"bitbucket.org/twuillemin/easy-sso-common/pkg/common"
 	log "github.com/sirupsen/logrus"
+	"github.com/twuillemin/easy-sso-common/pkg/common"
 )
 
 // basicProvider is the structure holding all the information for a basic authentication provider

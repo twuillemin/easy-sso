@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"bitbucket.org/twuillemin/easy-sso-common/pkg/common"
 	log "github.com/sirupsen/logrus"
+	"github.com/twuillemin/easy-sso-common/pkg/common"
 )
 
 // errors401 is a map holding the various errors that should (but not must) generate a 401 error in the general context

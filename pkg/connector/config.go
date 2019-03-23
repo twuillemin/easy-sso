@@ -1,8 +1,8 @@
 package connector
 
 import (
-	"bitbucket.org/twuillemin/easy-sso-common/pkg/common"
 	log "github.com/sirupsen/logrus"
+	"github.com/twuillemin/easy-sso-common/pkg/common"
 )
 
 type AuthConnectorConfig struct {

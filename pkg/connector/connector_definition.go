@@ -1,7 +1,7 @@
 package connector
 
 import (
-	"bitbucket.org/twuillemin/easy-sso-common/pkg/common"
+	"github.com/twuillemin/easy-sso-common/pkg/common"
 )
 
 // Connector is a generic interface for connecting to the SSO server. Currently only the HTTP

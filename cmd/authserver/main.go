@@ -6,9 +6,9 @@ import (
 	"os"
 	"strconv"
 
-	"bitbucket.org/twuillemin/easy-sso-common/pkg/common"
-	"bitbucket.org/twuillemin/easy-sso/pkg/server"
 	log "github.com/sirupsen/logrus"
+	"github.com/twuillemin/easy-sso-common/pkg/common"
+	"github.com/twuillemin/easy-sso/pkg/server"
 )
 
 func main() {

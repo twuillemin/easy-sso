@@ -1,8 +1,8 @@
 package validator
 
 import (
-	"bitbucket.org/twuillemin/easy-sso-common/pkg/common"
 	"crypto/rsa"
+	"github.com/twuillemin/easy-sso-common/pkg/common"
 	"net/http"
 )
 
@@ -34,7 +34,7 @@ func (validator validatorImpl) GetUserFromHeaderOrFail(writer http.ResponseWrite
 				http.Error(writer, "Internal Server Error", http.StatusInternalServerError)
 			}
 		}
-		return "", nil,err
+		return "", nil, err
 	}
 
 	return authenticationInformation.User, authenticationInformation.Roles, nil

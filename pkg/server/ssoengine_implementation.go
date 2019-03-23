@@ -4,10 +4,10 @@ import (
 	"crypto/rsa"
 	"time"
 
-	"bitbucket.org/twuillemin/easy-sso-common/pkg/common"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/satori/go.uuid"
 	log "github.com/sirupsen/logrus"
+	"github.com/twuillemin/easy-sso-common/pkg/common"
 )
 
 // ssoEngine holds together all the information needed by the default SSO engine
@@ -114,8 +114,8 @@ func (engine ssoEngineImpl) generateJWTToken(authenticatedUser *authenticatedUse
 		Roles: authenticatedUser.Roles,
 		StandardClaims: jwt.StandardClaims{
 			ExpiresAt: time.Now().Unix() + engine.tokenSecondsToLive,
-			IssuedAt: time.Now().Unix(),
-			Issuer: "EasySSO Server",
+			IssuedAt:  time.Now().Unix(),
+			Issuer:    "EasySSO Server",
 		},
 	}
 	// Build the token

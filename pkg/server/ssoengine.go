@@ -4,9 +4,9 @@ import (
 	"crypto/rsa"
 	"io/ioutil"
 
-	"bitbucket.org/twuillemin/easy-sso-common/pkg/common"
 	"github.com/dgrijalva/jwt-go"
 	log "github.com/sirupsen/logrus"
+	"github.com/twuillemin/easy-sso-common/pkg/common"
 )
 
 // newSsoEngine allocates a new ssoEngine with the given configuration

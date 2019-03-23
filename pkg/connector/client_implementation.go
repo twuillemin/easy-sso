@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"time"
 
-	"bitbucket.org/twuillemin/easy-sso-common/pkg/common"
+	"github.com/twuillemin/easy-sso-common/pkg/common"
 )
 
 type clientImpl struct {

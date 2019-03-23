@@ -3,8 +3,8 @@ package server
 import (
 	"os"
 
-	"bitbucket.org/twuillemin/easy-sso-common/pkg/common"
 	log "github.com/sirupsen/logrus"
+	"github.com/twuillemin/easy-sso-common/pkg/common"
 )
 
 type Configuration struct {
